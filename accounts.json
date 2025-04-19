@@ -1,0 +1,10 @@
+[
+  {
+    "name": "account_name",
+    "host": "imap.example.org",
+    "port": 993,
+    "username": "myaccount@example.org",
+    "password": "wxuk hmzb dtwc wcja",
+    "address": "by_default_is_same_as_username@example.org"
+  }
+]
