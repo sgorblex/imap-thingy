@@ -50,7 +50,7 @@ FILTERS = [
 
 Arbitrarily complex filters can be implemented in Python, likely via `imapclient` and/or `pyzmail`, if not directly via our bindings. For example, here is a custom filter that I wrote to automatically move DMARC reports, while first trashing the previews:
 ```python
-# custom_filters/__init__.py
+# custom_filters/dmarc.py
 
 from imap_thingy.account import EMailAccount
 from imap_thingy.filters.criterion_filter import CriterionFilter, from_is, move_to, subject_matches
