@@ -12,49 +12,85 @@ IMAP Thingy is a library that lets its users create advanced IMAP filters. Possi
 ## Installation
 The quickest way is probably
 ```
-git clone github.com/sgorblex/imap_thingy
-cd imap_thingy
-pip install -e .
-imap-thingy --help
+pip install git+https://github.com/sgorblex/imap-thingy.git
 ```
 
 
 ## Usage and examples
-First, populate `accounts.json` with your email credentials.
+Here is a simple example which loads credentials from an accounts.json file that looks something like this:
+```
+[
+  {
+    "name": "beautiful gmail account",
+    "type": "gmail",
+    "username": "myaddress@gmail.com",
+    "password": "ana ppp asw ord"
+  },
+  {
+    "name": "beautiful custom account",
+    "host": "mydomain.com",
+    "port": 993,
+	"username": "its.a.me@mydomain.com",
+    "password": "my_super_secret_pw"
+  }
+]
+```
+At the moment we do not support OAUTH (PRs welcome :), so if you're using something like GMail you will have to generate an [app-password](https://support.google.com/accounts/answer/185833?hl=en).
 
-At the moment we do not support OAUTH (PRs welcome :), so if you're using something like GMail you will have to generate an [app-password](https://support.google.com/accounts/answer/185833?hl=en)
-
-Instantiation of simple filters (probably the most useful):
+Here's an example of a minimal script which applies some simple filters (probably the most useful):
 ```python
-# custom_filters/__init__.py
+# my_beautiful_script.py
 
 from imap_thingy.filters.basic_filters import MoveIfToFilter, MoveIfFromFilter
 from imap_thingy.filters.criterion_filter import CriterionFilter, from_is, move_to, subject_matches, mark_as_read
-from .dmarc import DmarcFilter
+from imap_thingy.accounts import logout_all
+from imap_thingy.filters import apply_filters
+from imap_thingy.accounts import accounts_from_json
 
-from imap_thingy import ACCOUNTS
-xmpl = ACCOUNTS["example"]
-sgor = ACCOUNTS["Sgorblex"]
+from dmarc import DmarcFilter
 
-FILTERS = [
-        # In account example, move all mail directed to "members@boringassociation.org" to "Boring Association" folder
-        MoveIfToFilter(xmpl, "members@boringassociation.org", "Boring Association"),
-        # In account Sgorblex, move all mail from "googledev-noreply@google.com" to "Dev Stuff.Google Developer Program" folder. Note that folder delimiter may differ between servers
-        MoveIfFromFilter(sgor, "googledev-noreply@google.com", "Dev Stuff.Google Developer Program"),
+import argparse
+import logging
+
+def main():
+    parser = argparse.ArgumentParser(description="imap_filters: my personal IMAP filters")
+    parser.add_argument("--dry-run", action="store_true", help="Print actions instead of executing them")
+    parser.add_argument("--log", type=str, default="INFO", help="Logging level (DEBUG, INFO, WARNING, ERROR)")
+    args = parser.parse_args()
+    logging.basicConfig(level=getattr(logging, args.log.upper(), None), format='%(asctime)s [%(levelname)s] %(message)s')
+
+    accounts = accounts_from_json("accounts.json")
+    gmail = ACCOUNTS["beautiful gmail account"]
+    custom = ACCOUNTS["beautiful custom account"]
+
+    filters = [
+        # In account "beautiful gmail account", move all mail directed to "members@boringassociation.org" to "Boring Association" folder (marking as read first)
+        MoveIfToFilter(gmail, "members@boringassociation.org", "Boring Association"),
+        # In account "beautiful custom account", move all mail from "googledev-noreply@google.com" to "Dev Stuff.Google Developer Program" folder. Note that folder delimiter may differ between servers
+        MoveIfFromFilter(custom, "googledev-noreply@google.com", "Dev Stuff.Google Developer Program"),
         # An instantiation of a more general filter based on a complex criterion and a series of actions
-        CriterionFilter(xmpl, from_is("list4nerds@nerduniversity.edu") & subject_matches(r"List Digest, Vol \d\+"), mark_as_read() & move_to("List For Nerds")),
+        CriterionFilter(gmail, from_is("list4nerds@nerduniversity.edu") & subject_matches(r"List Digest, Vol \d\+"), mark_as_read() & move_to("List For Nerds")),
         # Custom filter, see below
-        DmarcFilter(sgor, "dmarcreport@microsoft.com", "Postmaster.DMARC Reports"),
-]
+        DmarcFilter(custom, "dmarcreport@microsoft.com", "Postmaster.DMARC Reports"),
+    ]
+
+    apply_filters(filters, dry_run=args.dry_run)
+    logout_all(accounts)
+
+
+if __name__ == "__main__":
+    main()
 ```
+The important parts are `accounts_from_json`, `filters`, `apply_filters` and `logout_all`.
 
 Arbitrarily complex filters can be implemented in Python, likely via `imapclient` and/or `pyzmail`, if not directly via our bindings. For example, here is a custom filter that I wrote to automatically move DMARC reports, while first trashing the previews:
 ```python
-# custom_filters/dmarc.py
+# dmarc.py
 
-from imap_thingy.account import EMailAccount
+from imap_thingy.accounts import EMailAccount
 from imap_thingy.filters.criterion_filter import CriterionFilter, from_is, move_to, subject_matches
-from imap_thingy.filters.filter_interfaces import OneAccountOneFolderFilter
+
+from imap_thingy.filters.interfaces import OneAccountOneFolderFilter
 
 class DmarcFilter(OneAccountOneFolderFilter):
     def __init__(self, account: EMailAccount, sender, folder, delete_preview=True, base_folder="INBOX"):
@@ -65,6 +101,7 @@ class DmarcFilter(OneAccountOneFolderFilter):
     def apply(self, dry_run=False):
         for filter in self.filters:
             filter.apply(dry_run=dry_run)
+
 ```
 
 ## Contributing
