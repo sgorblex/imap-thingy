@@ -37,7 +37,7 @@ Here is a simple example which loads credentials from an accounts.json file that
 ```
 At the moment we do not support OAUTH (PRs welcome :), so if you're using something like GMail you will have to generate an [app-password](https://support.google.com/accounts/answer/185833?hl=en).
 
-Here's an example of a minimal script which applies some simple filters (probably the most useful):
+As for the main script, which simply applies some filters (probably the most useful):
 ```python
 # my_beautiful_script.py
 
