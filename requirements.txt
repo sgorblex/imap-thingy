@@ -1,2 +1,0 @@
-imapclient
-pyzmail36
