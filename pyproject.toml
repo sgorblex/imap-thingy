@@ -24,9 +24,8 @@ ignore_missing_imports = true
 line-length = 200
 
 [tool.ruff.lint]
-# select = ["E", "F", "I", "N", "B", "UP", "D", "ANN"]
-select = ["E", "F", "I", "N", "B", "UP", "ANN"]
-ignore = ["D203", "D213"]
+select = ["E", "F", "I", "N", "B", "UP", "D", "ANN"]
+ignore = ["D203", "D213", "D105"]
 
 [tool.ruff.lint.per-file-ignores]
 "backend/config.py" = ["N802", "D102"]
