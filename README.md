@@ -75,7 +75,7 @@ def main():
     ]
 
     apply_filters(filters, dry_run=args.dry_run)
-    logout_all(accounts)
+    logout_all(accounts.values())
 
 
 if __name__ == "__main__":
