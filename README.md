@@ -60,8 +60,8 @@ def main():
     logging.basicConfig(level=getattr(logging, args.log.upper(), None), format='%(asctime)s [%(levelname)s] %(message)s')
 
     accounts = accounts_from_json("accounts.json")
-    gmail = ACCOUNTS["beautiful gmail account"]
-    custom = ACCOUNTS["beautiful custom account"]
+    gmail = accounts["beautiful gmail account"]
+    custom = accounts["beautiful custom account"]
 
     filters = [
         # In account "beautiful gmail account", move all mail directed to "members@boringassociation.org" to "Boring Association" folder (marking as read first)
