@@ -30,7 +30,7 @@ Here is a simple example which loads credentials from an accounts.json file that
     "name": "beautiful custom account",
     "host": "mydomain.com",
     "port": 993,
-	"username": "its.a.me@mydomain.com",
+    "username": "its.a.me@mydomain.com",
     "password": "my_super_secret_pw"
   }
 ]

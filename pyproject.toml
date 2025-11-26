@@ -1,7 +1,7 @@
 [project]
 name = "imap-thingy"
 version = "0.1.0"
-description = "Add your description here"
+description = "An IMAP scripting library for creating advanced email filters and automation"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
