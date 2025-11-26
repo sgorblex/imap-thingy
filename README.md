@@ -83,7 +83,7 @@ if __name__ == "__main__":
 ```
 The important parts are `accounts_from_json`, `filters`, `apply_filters` and `logout_all`.
 
-Arbitrarily complex filters can be implemented in Python, likely via `imapclient` and/or `pyzmail`, if not directly via our bindings. For example, here is a custom filter that I wrote to automatically move DMARC reports, while first trashing the previews:
+Arbitrarily complex filters can be implemented in Python, likely via `imapclient` and/or `mailparser`, if not directly via our bindings. For example, here is a custom filter that I wrote to automatically move DMARC reports, while first trashing the previews:
 ```python
 # dmarc.py
 
