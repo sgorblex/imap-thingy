@@ -99,8 +99,8 @@ class DmarcFilter(OneAccountOneFolderFilter):
         if delete_preview: self.filters = [CriterionFilter(account, from_is(sender) & subject_matches("[Preview] .*"), move_to("Trash"), base_folder=base_folder)] + self.filters
 
     def apply(self, dry_run=False):
-        for filter in self.filters:
-            filter.apply(dry_run=dry_run)
+        for filt in self.filters:
+            filt.apply(dry_run=dry_run)
 
 ```
 
