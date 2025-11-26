@@ -69,7 +69,7 @@ def main():
         # In account "beautiful custom account", move all mail from "googledev-noreply@google.com" to "Dev Stuff.Google Developer Program" folder. Note that folder delimiter may differ between servers
         MoveIfFromFilter(custom, "googledev-noreply@google.com", "Dev Stuff.Google Developer Program"),
         # An instantiation of a more general filter based on a complex criterion and a series of actions
-        CriterionFilter(gmail, from_is("list4nerds@nerduniversity.edu") & subject_matches(r"List Digest, Vol \d\+"), mark_as_read() & move_to("List For Nerds")),
+        CriterionFilter(gmail, from_is("list4nerds@nerduniversity.edu") & subject_matches(r"List Digest, Vol \d+"), mark_as_read() & move_to("List For Nerds")),
         # Custom filter, see below
         DmarcFilter(custom, "dmarcreport@microsoft.com", "Postmaster.DMARC Reports"),
     ]
