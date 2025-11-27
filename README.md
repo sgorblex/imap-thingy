@@ -90,11 +90,12 @@ Arbitrarily complex filters can be implemented in Python, likely via `imapclient
 from imap_thingy.accounts import EMailAccount
 from imap_thingy.filters.criterion_filter import CriterionFilter, from_is, move_to, subject_matches
 
-from imap_thingy.filters.interfaces import OneAccountOneFolderFilter
+from imap_thingy.filters.interfaces import OneAccountFilter
 
-class DmarcFilter(OneAccountOneFolderFilter):
+class DmarcFilter(OneAccountFilter):
     def __init__(self, account: EMailAccount, sender, folder, delete_preview=True, base_folder="INBOX"):
-        super().__init__(account, base_folder=base_folder)
+        super().__init__(account)
+        self.base_folder = base_folder
         self.filters = [CriterionFilter(account, from_is(sender), move_to(folder), base_folder=base_folder)]
         if delete_preview: self.filters = [CriterionFilter(account, from_is(sender) & subject_matches("[Preview] .*"), move_to("Trash"), base_folder=base_folder)] + self.filters
 
