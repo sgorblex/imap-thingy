@@ -42,10 +42,8 @@ As for the main script, which simply applies some filters (probably the most use
 # my_beautiful_script.py
 
 from imap_thingy.filters.basic_filters import MoveIfToFilter, MoveIfFromFilter
-from imap_thingy.filters.criterion_filter import CriterionFilter, from_is, move_to, subject_matches, mark_as_read
-from imap_thingy.accounts import logout_all
-from imap_thingy.filters import apply_filters
-from imap_thingy.accounts import accounts_from_json
+from imap_thingy.filters import CriterionFilter, FromIs, SubjectMatches, MoveTo, MarkAsRead, apply_filters
+from imap_thingy.accounts import logout_all, accounts_from_json
 
 from dmarc import DmarcFilter
 
@@ -69,7 +67,7 @@ def main():
         # In account "beautiful custom account", move all mail from "googledev-noreply@google.com" to "Dev Stuff.Google Developer Program" folder. Note that folder delimiter may differ between servers
         MoveIfFromFilter(custom, "googledev-noreply@google.com", "Dev Stuff.Google Developer Program"),
         # An instantiation of a more general filter based on a complex criterion and a series of actions
-        CriterionFilter(gmail, from_is("list4nerds@nerduniversity.edu") & subject_matches(r"List Digest, Vol \d+"), mark_as_read() & move_to("List For Nerds")),
+        CriterionFilter(gmail, FromIs("list4nerds@nerduniversity.edu") & SubjectMatches(r"List Digest, Vol \d+"), MarkAsRead() & MoveTo("List For Nerds")),
         # Custom filter, see below
         DmarcFilter(custom, "dmarcreport@microsoft.com", "Postmaster.DMARC Reports"),
     ]
@@ -88,16 +86,15 @@ Arbitrarily complex filters can be implemented in Python, likely via `imapclient
 # dmarc.py
 
 from imap_thingy.accounts import EMailAccount
-from imap_thingy.filters.criterion_filter import CriterionFilter, from_is, move_to, subject_matches
-
+from imap_thingy.filters import CriterionFilter, FromIs, SubjectMatches, MoveTo
 from imap_thingy.filters.interfaces import OneAccountFilter
 
 class DmarcFilter(OneAccountFilter):
     def __init__(self, account: EMailAccount, sender, folder, delete_preview=True, base_folder="INBOX"):
         super().__init__(account)
         self.base_folder = base_folder
-        self.filters = [CriterionFilter(account, from_is(sender), move_to(folder), base_folder=base_folder)]
-        if delete_preview: self.filters = [CriterionFilter(account, from_is(sender) & subject_matches("[Preview] .*"), move_to("Trash"), base_folder=base_folder)] + self.filters
+        self.filters = [CriterionFilter(account, FromIs(sender), MoveTo(folder), base_folder=base_folder)]
+        if delete_preview: self.filters = [CriterionFilter(account, FromIs(sender) & SubjectMatches("[Preview] .*"), MoveTo("Trash"), base_folder=base_folder)] + self.filters
 
     def apply(self, dry_run=False):
         for filt in self.filters:
