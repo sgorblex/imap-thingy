@@ -1,2 +1,15 @@
 [tools]
 uv = "latest"
+
+[tasks]
+test = "uv run pytest"
+build = "uv build"
+format = "uv format"
+lint = "uv run ruff check --fix"
+check = "uv run ruff check"
+type-check = "uv run mypy ."
+fix = { depends = ["format", "lint", "type-check"] }
+install = "uv install"
+update = "uv sync --dev --upgrade"
+clean = "find . \\( -type d -name __pycache__ -o -type d -name '*.egg-info' -o -type d -name .pytest_cache -o -type d -name .mypy_cache -o -type d -name .ruff_cache -o -type d -name htmlcov -o -type d -name dist -o -type d -name build -o -type f -name '*.pyc' -o -type f -name '*.pyo' -o -name .coverage \\) -delete 2>/dev/null || true"
+clean-all = { depends = ["clean"], run = "rm -rf .venv venv ENV env 2>/dev/null || true" }
