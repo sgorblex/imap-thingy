@@ -48,14 +48,11 @@ from imap_thingy.accounts import logout_all, accounts_from_json
 from dmarc import DmarcFilter
 
 import argparse
-import logging
 
 def main():
     parser = argparse.ArgumentParser(description="imap_filters: my personal IMAP filters")
     parser.add_argument("--dry-run", action="store_true", help="Print actions instead of executing them")
-    parser.add_argument("--log", type=str, default="INFO", help="Logging level (DEBUG, INFO, WARNING, ERROR)")
     args = parser.parse_args()
-    logging.basicConfig(level=getattr(logging, args.log.upper(), None), format='%(asctime)s [%(levelname)s] %(message)s')
 
     accounts = accounts_from_json("accounts.json")
     gmail = accounts["beautiful gmail account"]
@@ -80,6 +77,17 @@ if __name__ == "__main__":
     main()
 ```
 The important parts are `accounts_from_json`, `filters`, `apply_filters` and `logout_all`.
+
+**Note:** Logging is automatically configured when you import any module from `imap_thingy` (logs to both stdout and `imap_thingy.log` file with INFO level by default). To customize logging (e.g., change log level or file location), call `setup_logging()` from `imap_thingy.logging` *before* importing other `imap_thingy` modules:
+
+```python
+import logging
+from imap_thingy.logging import setup_logging
+
+setup_logging(root_level=logging.DEBUG, file_level=logging.DEBUG)
+
+from imap_thingy.filters import ...
+```
 
 Arbitrarily complex filters can be implemented in Python, likely via `imapclient` and/or `mailparser`, if not directly via our bindings. For example, here is a custom filter that I wrote to automatically move DMARC reports, while first trashing the previews:
 ```python
