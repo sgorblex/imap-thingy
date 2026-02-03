@@ -41,11 +41,10 @@ As for the main script, which simply applies some filters (probably the most use
 ```python
 # my_beautiful_script.py
 
-from imap_thingy.filters.basic_filters import MoveIfToFilter, MoveIfFromFilter
-from imap_thingy.filters import CriterionFilter, FromIs, SubjectMatches, MoveTo, MarkAsRead, apply_filters
-from imap_thingy.accounts import logout_all, accounts_from_json
+from imap_thingy.accounts import Path, accounts_from_json
+from imap_thingy.filters import Filter, If, FromIs, SubjectMatches, ToIs, MoveTo, MarkAsRead
 
-from dmarc import DmarcFilter
+from dmarc import dmarc_pairs
 
 import argparse
 
@@ -58,27 +57,26 @@ def main():
     gmail = accounts["beautiful gmail account"]
     custom = accounts["beautiful custom account"]
 
-    filters = [
+    pairs = [
         # In account "beautiful gmail account", move all mail directed to "members@boringassociation.org" to "Boring Association" folder (marking as read first)
-        MoveIfToFilter(gmail, "members@boringassociation.org", "Boring Association"),
+        (gmail / "INBOX", Filter(ToIs("members@boringassociation.org"), MarkAsRead() + MoveTo(Path("Boring Association")))),
         # In account "beautiful custom account", move all mail from "googledev-noreply@google.com" to "Dev Stuff.Google Developer Program" folder. Note that folder delimiter may differ between servers
-        MoveIfFromFilter(custom, "googledev-noreply@google.com", "Dev Stuff.Google Developer Program"),
-        # An instantiation of a more general filter based on a complex criterion and a series of actions
-        CriterionFilter(gmail, FromIs("list4nerds@nerduniversity.edu") & SubjectMatches(r"List Digest, Vol \d+"), MarkAsRead() & MoveTo("List For Nerds")),
-        # Custom filter, see below
-        DmarcFilter(custom, "dmarcreport@microsoft.com", "Postmaster.DMARC Reports"),
+        (custom / "INBOX", Filter(FromIs("googledev-noreply@google.com"), MarkAsRead() + MoveTo(Path("Dev Stuff.Google Developer Program")))),
+        # A filter based on a complex criterion and a series of actions
+        (gmail / "INBOX", If(FromIs("list4nerds@nerduniversity.edu") & SubjectMatches(r"List Digest, Vol \d+")).then(MarkAsRead() + MoveTo(Path("List For Nerds")))),
     ]
+    pairs.extend(dmarc_pairs(custom, "dmarcreport@microsoft.com", "Postmaster.DMARC Reports"))
 
-    apply_filters(filters, dry_run=args.dry_run)
-    logout_all(accounts.values())
+    for folder, f in pairs:
+        folder.run(f, dry_run=args.dry_run)
 
 
 if __name__ == "__main__":
     main()
 ```
-The important parts are `accounts_from_json`, `filters`, `apply_filters` and `logout_all`.
+The important parts are `accounts_from_json`, `pairs` (folder + filter), and looping over pairs and calling `folder.run(f, ...)`. Folders are obtained from an account (e.g. `account / "INBOX"`, `account.inbox`). For type hints or direct use, import `Folder` from `imap_thingy.accounts`.
 
-**Note:** Logging is automatically configured when you import any module from `imap_thingy` (logs to both stdout and `imap_thingy.log` file with INFO level by default). To customize logging (e.g., change log level or file location), call `setup_logging()` from `imap_thingy.logging` *before* importing other `imap_thingy` modules:
+**Note:** Logging is not configured automatically. Call `setup_logging()` from `imap_thingy.logging` (e.g. for stdout and `imap_thingy.log` with INFO level) *before* importing other `imap_thingy` modules if you want logging:
 
 ```python
 import logging
@@ -89,25 +87,20 @@ setup_logging(root_level=logging.DEBUG, file_level=logging.DEBUG)
 from imap_thingy.filters import ...
 ```
 
-Arbitrarily complex filters can be implemented in Python, likely via `imapclient` and/or `mailparser`, if not directly via our bindings. For example, here is a custom filter that I wrote to automatically move DMARC reports, while first trashing the previews:
+Arbitrarily complex filters can be implemented in Python, likely via `imapclient` and/or `mailparser`, if not directly via our bindings. For example, here is a custom helper that returns (folder, filter) pairs to automatically move DMARC reports, while first trashing the previews:
 ```python
 # dmarc.py
 
-from imap_thingy.accounts import EMailAccount
-from imap_thingy.filters import CriterionFilter, FromIs, SubjectMatches, MoveTo
-from imap_thingy.filters.interfaces import OneAccountFilter
+from imap_thingy.accounts import Account, Path
+from imap_thingy.filters import If, FromIs, SubjectMatches, MoveTo, Trash
 
-class DmarcFilter(OneAccountFilter):
-    def __init__(self, account: EMailAccount, sender, folder, delete_preview=True, base_folder="INBOX"):
-        super().__init__(account)
-        self.base_folder = base_folder
-        self.filters = [CriterionFilter(account, FromIs(sender), MoveTo(folder), base_folder=base_folder)]
-        if delete_preview: self.filters = [CriterionFilter(account, FromIs(sender) & SubjectMatches("[Preview] .*"), MoveTo("Trash"), base_folder=base_folder)] + self.filters
-
-    def apply(self, dry_run=False):
-        for filt in self.filters:
-            filt.apply(dry_run=dry_run)
-
+def dmarc_pairs(account: Account, sender: str, folder: str, delete_preview: bool = True, base_folder: str = "INBOX"):
+    f = account / base_folder
+    pairs = []
+    if delete_preview:
+        pairs.append((f, If(FromIs(sender) & SubjectMatches("[Preview] .*")).then(Trash())))
+    pairs.append((f, If(FromIs(sender)).then(MoveTo(Path(folder)))))
+    return pairs
 ```
 
 ## Contributing
