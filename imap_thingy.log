@@ -1,0 +1,370 @@
+2026-02-04 17:19:58,430 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-04 17:19:58,431 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-04 17:19:58,431 [INFO] imap-thingy: No duplicate emails found
+2026-02-04 17:19:58,431 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-04 17:19:58,431 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-04 17:19:58,431 [INFO] imap-thingy: Found 2 duplicates (key: msgid:<duplicate@example.com>). Keeping message 1, marking [2] for removal
+2026-02-04 17:19:58,431 [INFO] imap-thingy: Found 1 duplicate emails to remove
+2026-02-04 17:19:58,432 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-04 17:19:58,434 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-04 17:19:58,434 [INFO] imap-thingy: [Dry-Run] Would select: [1, 2, 3]
+2026-02-04 17:19:58,434 [INFO] imap-thingy: [Dry-Run] Would execute: move to TestFolder
+2026-02-04 17:19:58,435 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-04 17:19:58,435 [INFO] imap-thingy: Selected: [1, 2, 3]
+2026-02-04 17:19:58,435 [INFO] imap-thingy: Executed: move to TestFolder
+2026-02-04 17:19:58,435 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-04 17:19:58,441 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-04 17:19:58,441 [INFO] imap-thingy: Selected: [1]
+2026-02-04 17:19:58,441 [INFO] imap-thingy: Executed: move to Dest
+2026-02-04 17:19:58,442 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-04 17:38:24,283 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-04 17:38:24,284 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-04 17:38:24,284 [INFO] imap-thingy: No duplicate emails found
+2026-02-04 17:38:24,284 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-04 17:38:24,284 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-04 17:38:24,284 [INFO] imap-thingy: Found 2 duplicates (key: msgid:<duplicate@example.com>). Keeping message 1, marking [2] for removal
+2026-02-04 17:38:24,284 [INFO] imap-thingy: Found 1 duplicate emails to remove
+2026-02-04 17:38:24,285 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-04 17:38:24,286 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-04 17:38:24,286 [INFO] imap-thingy: [Dry-Run] Would select: [1, 2, 3]
+2026-02-04 17:38:24,286 [INFO] imap-thingy: [Dry-Run] Would execute: move to TestFolder
+2026-02-04 17:38:24,287 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-04 17:38:24,287 [INFO] imap-thingy: Selected: [1, 2, 3]
+2026-02-04 17:38:24,287 [INFO] imap-thingy: Executed: move to TestFolder
+2026-02-04 17:38:24,288 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-04 17:38:24,292 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-04 17:38:24,292 [INFO] imap-thingy: Selected: [1]
+2026-02-04 17:38:24,292 [INFO] imap-thingy: Executed: move to Dest
+2026-02-04 17:38:24,294 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-04 17:43:26,342 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-04 17:43:26,342 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-04 17:43:26,342 [INFO] imap-thingy: No duplicate emails found
+2026-02-04 17:43:26,343 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-04 17:43:26,343 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-04 17:43:26,343 [INFO] imap-thingy: Found 2 duplicates (key: msgid:<duplicate@example.com>). Keeping message 1, marking [2] for removal
+2026-02-04 17:43:26,343 [INFO] imap-thingy: Found 1 duplicate emails to remove
+2026-02-04 17:43:26,344 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-04 17:43:26,346 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-04 17:43:26,346 [INFO] imap-thingy: [Dry-Run] Would select: [1, 2, 3]
+2026-02-04 17:43:26,346 [INFO] imap-thingy: [Dry-Run] Would execute: move to TestFolder
+2026-02-04 17:43:26,347 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-04 17:43:26,347 [INFO] imap-thingy: Selected: [1, 2, 3]
+2026-02-04 17:43:26,347 [INFO] imap-thingy: Executed: move to TestFolder
+2026-02-04 17:43:26,347 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-04 17:43:26,352 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-04 17:43:26,352 [INFO] imap-thingy: Selected: [1]
+2026-02-04 17:43:26,352 [INFO] imap-thingy: Executed: move to Dest
+2026-02-04 17:43:26,353 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:29:43,919 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 14:29:43,919 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-05 14:29:43,919 [INFO] imap-thingy: No duplicate emails found
+2026-02-05 14:29:43,920 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 14:29:43,920 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-05 14:29:43,920 [INFO] imap-thingy: Found 2 duplicates (key: msgid:<duplicate@example.com>). Keeping message 1, marking [2] for removal
+2026-02-05 14:29:43,920 [INFO] imap-thingy: Found 1 duplicate emails to remove
+2026-02-05 14:29:43,921 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:29:43,922 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:29:43,922 [INFO] imap-thingy: [Dry-Run] Would select: [1, 2, 3]
+2026-02-05 14:29:43,922 [INFO] imap-thingy: [Dry-Run] Would execute: move to TestFolder
+2026-02-05 14:29:43,923 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:29:43,923 [INFO] imap-thingy: Selected: [1, 2, 3]
+2026-02-05 14:29:43,923 [INFO] imap-thingy: Executed: move to TestFolder
+2026-02-05 14:29:43,923 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:29:46,996 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 14:29:46,996 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-05 14:29:46,996 [INFO] imap-thingy: No duplicate emails found
+2026-02-05 14:29:46,997 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 14:29:46,997 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-05 14:29:46,997 [INFO] imap-thingy: Found 2 duplicates (key: msgid:<duplicate@example.com>). Keeping message 1, marking [2] for removal
+2026-02-05 14:29:46,997 [INFO] imap-thingy: Found 1 duplicate emails to remove
+2026-02-05 14:29:46,998 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:29:46,999 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:29:46,999 [INFO] imap-thingy: [Dry-Run] Would select: [1, 2, 3]
+2026-02-05 14:29:46,999 [INFO] imap-thingy: [Dry-Run] Would execute: move to TestFolder
+2026-02-05 14:29:47,000 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:29:47,000 [INFO] imap-thingy: Selected: [1, 2, 3]
+2026-02-05 14:29:47,000 [INFO] imap-thingy: Executed: move to TestFolder
+2026-02-05 14:29:47,001 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:29:47,013 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:29:47,013 [INFO] imap-thingy: Selected: [1]
+2026-02-05 14:29:47,013 [INFO] imap-thingy: Executed: move to Dest
+2026-02-05 14:29:47,014 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:29:47,014 [INFO] imap-thingy: Selected: [1]
+2026-02-05 14:29:47,014 [INFO] imap-thingy: Executed: move to D1
+2026-02-05 14:29:47,014 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:29:47,014 [INFO] imap-thingy: Selected: [2]
+2026-02-05 14:29:47,014 [INFO] imap-thingy: Executed: move to D2
+2026-02-05 14:29:47,015 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:30:16,568 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 14:30:16,568 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-05 14:30:16,568 [INFO] imap-thingy: No duplicate emails found
+2026-02-05 14:30:16,569 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 14:30:16,569 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-05 14:30:16,569 [INFO] imap-thingy: Found 2 duplicates (key: msgid:<duplicate@example.com>). Keeping message 1, marking [2] for removal
+2026-02-05 14:30:16,569 [INFO] imap-thingy: Found 1 duplicate emails to remove
+2026-02-05 14:30:16,570 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:30:16,571 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:30:16,571 [INFO] imap-thingy: [Dry-Run] Would select: [1, 2, 3]
+2026-02-05 14:30:16,571 [INFO] imap-thingy: [Dry-Run] Would execute: move to TestFolder
+2026-02-05 14:30:16,572 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:30:16,572 [INFO] imap-thingy: Selected: [1, 2, 3]
+2026-02-05 14:30:16,572 [INFO] imap-thingy: Executed: move to TestFolder
+2026-02-05 14:30:16,572 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:30:16,577 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:30:16,577 [INFO] imap-thingy: Selected: [1]
+2026-02-05 14:30:16,577 [INFO] imap-thingy: Executed: move to Dest
+2026-02-05 14:30:16,578 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:30:16,578 [INFO] imap-thingy: Selected: [1]
+2026-02-05 14:30:16,578 [INFO] imap-thingy: Executed: move to D1
+2026-02-05 14:30:16,578 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:30:16,578 [INFO] imap-thingy: Selected: [2]
+2026-02-05 14:30:16,578 [INFO] imap-thingy: Executed: move to D2
+2026-02-05 14:30:16,580 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:31:00,295 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 14:31:00,296 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-05 14:31:00,296 [INFO] imap-thingy: No duplicate emails found
+2026-02-05 14:31:00,296 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 14:31:00,296 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-05 14:31:00,297 [INFO] imap-thingy: Found 2 duplicates (key: msgid:<duplicate@example.com>). Keeping message 1, marking [2] for removal
+2026-02-05 14:31:00,297 [INFO] imap-thingy: Found 1 duplicate emails to remove
+2026-02-05 14:31:00,297 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:31:00,299 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:31:00,299 [INFO] imap-thingy: [Dry-Run] Would select: [1, 2, 3]
+2026-02-05 14:31:00,299 [INFO] imap-thingy: [Dry-Run] Would execute: move to TestFolder
+2026-02-05 14:31:00,300 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:31:00,300 [INFO] imap-thingy: Selected: [1, 2, 3]
+2026-02-05 14:31:00,300 [INFO] imap-thingy: Executed: move to TestFolder
+2026-02-05 14:31:00,300 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:31:00,306 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:31:00,306 [INFO] imap-thingy: Selected: [1]
+2026-02-05 14:31:00,306 [INFO] imap-thingy: Executed: move to Dest
+2026-02-05 14:31:00,306 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:31:00,306 [INFO] imap-thingy: Selected: [1]
+2026-02-05 14:31:00,306 [INFO] imap-thingy: Executed: move to D1
+2026-02-05 14:31:00,306 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 14:31:00,306 [INFO] imap-thingy: Selected: [2]
+2026-02-05 14:31:00,306 [INFO] imap-thingy: Executed: move to D2
+2026-02-05 14:31:00,307 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:26:20,289 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 15:26:20,289 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-05 15:26:20,289 [INFO] imap-thingy: No duplicate emails found
+2026-02-05 15:26:20,290 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 15:26:20,290 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-05 15:26:20,290 [INFO] imap-thingy: Found 2 duplicates (key: msgid:<duplicate@example.com>). Keeping message 1, marking [2] for removal
+2026-02-05 15:26:20,290 [INFO] imap-thingy: Found 1 duplicate emails to remove
+2026-02-05 15:26:20,290 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:26:20,292 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:26:20,292 [INFO] imap-thingy: [Dry-Run] Would select: [1, 2, 3]
+2026-02-05 15:26:20,292 [INFO] imap-thingy: [Dry-Run] Would execute: move to TestFolder
+2026-02-05 15:26:20,293 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:26:20,293 [INFO] imap-thingy: Selected: [1, 2, 3]
+2026-02-05 15:26:20,293 [INFO] imap-thingy: Executed: move to TestFolder
+2026-02-05 15:26:20,294 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:26:20,298 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:26:20,298 [INFO] imap-thingy: Selected: [1]
+2026-02-05 15:26:20,298 [INFO] imap-thingy: Executed: move to Dest
+2026-02-05 15:26:20,299 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:26:20,299 [INFO] imap-thingy: Selected: [1]
+2026-02-05 15:26:20,299 [INFO] imap-thingy: Executed: move to D1
+2026-02-05 15:26:20,299 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:26:20,299 [INFO] imap-thingy: Selected: [2]
+2026-02-05 15:26:20,299 [INFO] imap-thingy: Executed: move to D2
+2026-02-05 15:26:20,299 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:27:10,123 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 15:27:10,123 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-05 15:27:10,123 [INFO] imap-thingy: No duplicate emails found
+2026-02-05 15:27:10,124 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 15:27:10,124 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-05 15:27:10,124 [INFO] imap-thingy: Found 2 duplicates (key: msgid:<duplicate@example.com>). Keeping message 1, marking [2] for removal
+2026-02-05 15:27:10,124 [INFO] imap-thingy: Found 1 duplicate emails to remove
+2026-02-05 15:27:10,125 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:27:10,126 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:27:10,126 [INFO] imap-thingy: [Dry-Run] Would select: [1, 2, 3]
+2026-02-05 15:27:10,126 [INFO] imap-thingy: [Dry-Run] Would execute: move to TestFolder
+2026-02-05 15:27:10,127 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:27:10,127 [INFO] imap-thingy: Selected: [1, 2, 3]
+2026-02-05 15:27:10,127 [INFO] imap-thingy: Executed: move to TestFolder
+2026-02-05 15:27:10,127 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:27:10,132 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:27:10,132 [INFO] imap-thingy: Selected: [1]
+2026-02-05 15:27:10,132 [INFO] imap-thingy: Executed: move to Dest
+2026-02-05 15:27:10,133 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:27:10,133 [INFO] imap-thingy: Selected: [1]
+2026-02-05 15:27:10,133 [INFO] imap-thingy: Executed: move to D1
+2026-02-05 15:27:10,133 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:27:10,133 [INFO] imap-thingy: Selected: [2]
+2026-02-05 15:27:10,133 [INFO] imap-thingy: Executed: move to D2
+2026-02-05 15:27:10,134 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:34:49,153 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 15:34:49,153 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-05 15:34:49,153 [INFO] imap-thingy: No duplicate emails found
+2026-02-05 15:34:49,154 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 15:34:49,154 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-05 15:34:49,154 [INFO] imap-thingy: Found 2 duplicates (key: msgid:<duplicate@example.com>). Keeping message 1, marking [2] for removal
+2026-02-05 15:34:49,154 [INFO] imap-thingy: Found 1 duplicate emails to remove
+2026-02-05 15:34:49,155 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:34:49,156 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:34:49,156 [INFO] imap-thingy: [Dry-Run] Would select: [1, 2, 3]
+2026-02-05 15:34:49,156 [INFO] imap-thingy: [Dry-Run] Would execute: move to TestFolder
+2026-02-05 15:34:49,157 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:34:49,157 [INFO] imap-thingy: Selected: [1, 2, 3]
+2026-02-05 15:34:49,157 [INFO] imap-thingy: Executed: move to TestFolder
+2026-02-05 15:34:49,158 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:34:49,163 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:34:49,163 [INFO] imap-thingy: Selected: [1]
+2026-02-05 15:34:49,163 [INFO] imap-thingy: Executed: move to Dest
+2026-02-05 15:34:49,163 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:34:49,163 [INFO] imap-thingy: Selected: [1]
+2026-02-05 15:34:49,163 [INFO] imap-thingy: Executed: move to D1
+2026-02-05 15:34:49,163 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 15:34:49,163 [INFO] imap-thingy: Selected: [2]
+2026-02-05 15:34:49,163 [INFO] imap-thingy: Executed: move to D2
+2026-02-05 15:34:49,164 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 16:44:10,621 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 16:44:10,621 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-05 16:44:10,621 [INFO] imap-thingy: No duplicate emails found
+2026-02-05 16:44:10,622 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 16:44:10,622 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-05 16:44:10,622 [INFO] imap-thingy: Found 2 duplicates (key: msgid:<duplicate@example.com>). Keeping message 1, marking [2] for removal
+2026-02-05 16:44:10,623 [INFO] imap-thingy: Found 1 duplicate emails to remove
+2026-02-05 16:44:10,623 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 16:44:10,625 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 16:44:10,625 [INFO] imap-thingy: [Dry-Run] Would select: [1, 2, 3]
+2026-02-05 16:44:10,625 [INFO] imap-thingy: [Dry-Run] Would execute: move to TestFolder
+2026-02-05 16:44:10,626 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 16:44:10,626 [INFO] imap-thingy: Selected: [1, 2, 3]
+2026-02-05 16:44:10,626 [INFO] imap-thingy: Executed: move to TestFolder
+2026-02-05 16:44:10,626 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 16:44:10,633 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 16:44:10,633 [INFO] imap-thingy: Selected: [1]
+2026-02-05 16:44:10,633 [INFO] imap-thingy: Executed: move to Dest
+2026-02-05 16:44:10,633 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 16:44:10,633 [INFO] imap-thingy: Selected: [1]
+2026-02-05 16:44:10,633 [INFO] imap-thingy: Executed: move to D1
+2026-02-05 16:44:10,633 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 16:44:10,633 [INFO] imap-thingy: Selected: [2]
+2026-02-05 16:44:10,633 [INFO] imap-thingy: Executed: move to D2
+2026-02-05 16:44:10,634 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 16:47:34,193 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 16:47:34,193 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-05 16:47:34,193 [INFO] imap-thingy: No duplicate emails found
+2026-02-05 16:47:34,194 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 16:47:34,194 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-05 16:47:34,194 [INFO] imap-thingy: Found 2 duplicates (key: msgid:<duplicate@example.com>). Keeping message 1, marking [2] for removal
+2026-02-05 16:47:34,194 [INFO] imap-thingy: Found 1 duplicate emails to remove
+2026-02-05 16:47:34,195 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 16:47:34,196 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 16:47:34,196 [INFO] imap-thingy: [Dry-Run] Would select: [1, 2, 3]
+2026-02-05 16:47:34,196 [INFO] imap-thingy: [Dry-Run] Would execute: move to TestFolder
+2026-02-05 16:47:34,197 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 16:47:34,197 [INFO] imap-thingy: Selected: [1, 2, 3]
+2026-02-05 16:47:34,197 [INFO] imap-thingy: Executed: move to TestFolder
+2026-02-05 16:47:34,197 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 16:47:34,203 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 16:47:34,203 [INFO] imap-thingy: Selected: [1]
+2026-02-05 16:47:34,203 [INFO] imap-thingy: Executed: move to Dest
+2026-02-05 16:47:34,204 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 16:47:34,204 [INFO] imap-thingy: Selected: [1]
+2026-02-05 16:47:34,204 [INFO] imap-thingy: Executed: move to D1
+2026-02-05 16:47:34,204 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 16:47:34,204 [INFO] imap-thingy: Selected: [2]
+2026-02-05 16:47:34,204 [INFO] imap-thingy: Executed: move to D2
+2026-02-05 16:47:34,205 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:13:07,677 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 17:13:07,677 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-05 17:13:07,678 [INFO] imap-thingy: No duplicate emails found
+2026-02-05 17:13:07,678 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 17:13:07,678 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-05 17:13:07,679 [INFO] imap-thingy: Found 2 duplicates (key: msgid:<duplicate@example.com>). Keeping message 1, marking [2] for removal
+2026-02-05 17:13:07,679 [INFO] imap-thingy: Found 1 duplicate emails to remove
+2026-02-05 17:13:07,679 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:13:07,682 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:13:07,682 [INFO] imap-thingy: [Dry-Run] Would select: [1, 2, 3]
+2026-02-05 17:13:07,682 [INFO] imap-thingy: [Dry-Run] Would execute: move to TestFolder
+2026-02-05 17:13:07,682 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:13:07,682 [INFO] imap-thingy: Selected: [1, 2, 3]
+2026-02-05 17:13:07,682 [INFO] imap-thingy: Executed: move to TestFolder
+2026-02-05 17:13:07,683 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:13:07,687 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:13:07,687 [INFO] imap-thingy: Selected: [1]
+2026-02-05 17:13:07,687 [INFO] imap-thingy: Executed: move to Dest
+2026-02-05 17:13:07,688 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:13:07,688 [INFO] imap-thingy: Selected: [1]
+2026-02-05 17:13:07,688 [INFO] imap-thingy: Executed: move to D1
+2026-02-05 17:13:07,688 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:13:07,688 [INFO] imap-thingy: Selected: [2]
+2026-02-05 17:13:07,688 [INFO] imap-thingy: Executed: move to D2
+2026-02-05 17:13:07,688 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:13:44,686 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 17:13:44,686 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-05 17:13:44,686 [INFO] imap-thingy: No duplicate emails found
+2026-02-05 17:13:44,687 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 17:13:44,687 [INFO] imap-thingy: Fetching mail with IMAP query ['ALL']
+2026-02-05 17:13:44,687 [INFO] imap-thingy: Found 2 duplicates (key: msgid:<duplicate@example.com>). Keeping message 1, marking [2] for removal
+2026-02-05 17:13:44,687 [INFO] imap-thingy: Found 1 duplicate emails to remove
+2026-02-05 17:13:44,688 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:13:44,689 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:13:44,689 [INFO] imap-thingy: [Dry-Run] Would select: [1, 2, 3]
+2026-02-05 17:13:44,689 [INFO] imap-thingy: [Dry-Run] Would execute: move to TestFolder
+2026-02-05 17:13:44,690 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:13:44,690 [INFO] imap-thingy: Selected: [1, 2, 3]
+2026-02-05 17:13:44,690 [INFO] imap-thingy: Executed: move to TestFolder
+2026-02-05 17:13:44,690 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:13:44,697 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:13:44,697 [INFO] imap-thingy: Selected: [1]
+2026-02-05 17:13:44,697 [INFO] imap-thingy: Executed: move to Dest
+2026-02-05 17:13:44,698 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:13:44,698 [INFO] imap-thingy: Selected: [1]
+2026-02-05 17:13:44,698 [INFO] imap-thingy: Executed: move to D1
+2026-02-05 17:13:44,698 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:13:44,698 [INFO] imap-thingy: Selected: [2]
+2026-02-05 17:13:44,698 [INFO] imap-thingy: Executed: move to D2
+2026-02-05 17:13:44,699 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:33:21,856 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:33:21,858 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:33:21,858 [INFO] imap-thingy: [Dry-Run] Would select: [1, 2, 3]
+2026-02-05 17:33:21,858 [INFO] imap-thingy: [Dry-Run] Would execute: move to TestFolder
+2026-02-05 17:33:21,858 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:33:21,858 [INFO] imap-thingy: Selected: [1, 2, 3]
+2026-02-05 17:33:21,859 [INFO] imap-thingy: Executed: move to TestFolder
+2026-02-05 17:33:21,859 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:33:21,866 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:33:21,866 [INFO] imap-thingy: Selected: [1]
+2026-02-05 17:33:21,866 [INFO] imap-thingy: Executed: move to Dest
+2026-02-05 17:33:21,867 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:33:21,867 [INFO] imap-thingy: Selected: [1]
+2026-02-05 17:33:21,867 [INFO] imap-thingy: Executed: move to D1
+2026-02-05 17:33:21,867 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:33:21,867 [INFO] imap-thingy: Selected: [2]
+2026-02-05 17:33:21,867 [INFO] imap-thingy: Executed: move to D2
+2026-02-05 17:33:21,867 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:33:31,859 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 17:33:31,859 [INFO] imap-thingy: No duplicate emails found
+2026-02-05 17:33:31,860 [INFO] imap-thingy: Scanning for duplicate emails...
+2026-02-05 17:33:31,860 [INFO] imap-thingy: Found 2 duplicates (key: msgid:<duplicate@example.com>). Keeping message 1, marking [2] for removal
+2026-02-05 17:33:31,860 [INFO] imap-thingy: Found 1 duplicate emails to remove
+2026-02-05 17:33:31,861 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:33:31,863 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:33:31,863 [INFO] imap-thingy: [Dry-Run] Would select: [1, 2, 3]
+2026-02-05 17:33:31,863 [INFO] imap-thingy: [Dry-Run] Would execute: move to TestFolder
+2026-02-05 17:33:31,863 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:33:31,863 [INFO] imap-thingy: Selected: [1, 2, 3]
+2026-02-05 17:33:31,863 [INFO] imap-thingy: Executed: move to TestFolder
+2026-02-05 17:33:31,864 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:33:31,869 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:33:31,869 [INFO] imap-thingy: Selected: [1]
+2026-02-05 17:33:31,869 [INFO] imap-thingy: Executed: move to Dest
+2026-02-05 17:33:31,869 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:33:31,869 [INFO] imap-thingy: Selected: [1]
+2026-02-05 17:33:31,869 [INFO] imap-thingy: Executed: move to D1
+2026-02-05 17:33:31,869 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:33:31,869 [INFO] imap-thingy: Selected: [2]
+2026-02-05 17:33:31,869 [INFO] imap-thingy: Executed: move to D2
+2026-02-05 17:33:31,870 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:44:51,962 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:44:51,962 [INFO] imap-thingy: [Dry-Run] Would select: [1, 2, 3]
+2026-02-05 17:44:51,962 [INFO] imap-thingy: [Dry-Run] Would execute: move to TestFolder
+2026-02-05 17:44:51,963 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
+2026-02-05 17:44:51,963 [INFO] imap-thingy: Selected: [1, 2, 3]
+2026-02-05 17:44:51,963 [INFO] imap-thingy: Executed: move to TestFolder
+2026-02-05 17:44:51,964 [INFO] imap-thingy: Fetching mail efficiently with IMAP query ['ALL']
