@@ -76,16 +76,7 @@ if __name__ == "__main__":
 ```
 The important parts are `accounts_from_json`, `pairs` (folder + filter), and looping over pairs and calling `folder.run(f, ...)`. Folders are obtained from an account (e.g. `account / "INBOX"`, `account.inbox`). For type hints or direct use, import `Folder` from `imap_thingy.accounts`.
 
-**Note:** Logging is not configured automatically. Call `setup_logging()` from `imap_thingy.logging` (e.g. for stdout and `imap_thingy.log` with INFO level) *before* importing other `imap_thingy` modules if you want logging:
-
-```python
-import logging
-from imap_thingy.logging import setup_logging
-
-setup_logging(root_level=logging.DEBUG, file_level=logging.DEBUG)
-
-from imap_thingy.filters import ...
-```
+**Note:** The library no longer configures logging automatically. The previously documented `imap_thingy.logging.setup_logging()` helper is kept only as a deprecated compatibility shim and should not be used in new code. Instead, configure logging explicitly in your application near the entry point (for example with `logging.basicConfig(level=logging.INFO, format="%(levelname)s  %(name)s  %(message)s")`) so that loggers under `imap_thingy` emit to your handlers.
 
 Arbitrarily complex filters can be implemented in Python, likely via `imapclient` and/or `mailparser`, if not directly via our bindings. For example, here is a custom helper that returns (folder, filter) pairs to automatically move DMARC reports, while first trashing the previews:
 ```python
