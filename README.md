@@ -74,7 +74,7 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-The important parts are `accounts_from_json`, `pairs` (folder + filter), and looping over pairs and calling `folder.run(f, ...)`. Folders are obtained from an account (e.g. `account / "INBOX"`, `account.inbox`). For type hints or direct use, import `Folder` from `imap_thingy.accounts`.
+The important parts are `accounts_from_json`, `pairs` (folder + filter), and looping over pairs and calling `folder.run(f, ...)`. Folders are obtained from an account (e.g. `account / "INBOX"`, `account.inbox`). For type hints or direct use, import `Folder` from `imap_thingy.accounts`. Criteria that can be expressed purely in IMAP (e.g. `FromIs`, `SubjectContains`) use server-side search only; criteria that need body parsing (e.g. `SubjectMatches` with regex) use a per-run fetch cache to minimize redundant fetches within a `run()`, but messages that have had actions applied may be evicted from the cache and fetched again if they are re-selected later in the same `run()`.
 
 **Note:** The library no longer configures logging automatically. The previously documented `imap_thingy.logging.setup_logging()` helper is kept only as a deprecated compatibility shim and should not be used in new code. Instead, configure logging explicitly in your application near the entry point (for example with `logging.basicConfig(level=logging.INFO, format="%(levelname)s  %(name)s  %(message)s")`) so that loggers under `imap_thingy` emit to your handlers.
 
