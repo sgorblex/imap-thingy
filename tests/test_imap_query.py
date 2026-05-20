@@ -5,7 +5,7 @@ from unittest.mock import MagicMock
 from imapclient.imapclient import _normalise_search_criteria
 
 from imap_thingy.core import Q
-from imap_thingy.get_mail import _normalise_search_criteria_utf8, search_mail
+from imap_thingy.get_mail import SearchCriteria, _normalise_search_criteria_utf8, search_mail
 
 
 class TestIMAPQueryBuildStructure:
@@ -68,13 +68,13 @@ class TestIMAPQueryBuildStructure:
 
     def test_utf8_flagged_and_body_euro_is_flat(self) -> None:
         body = "Importo: 0,00 \u20ac EUR"
-        built = ["FLAGGED", ("BODY", body)]
+        built: SearchCriteria = ["FLAGGED", ("BODY", body)]
         out = _normalise_search_criteria_utf8(built, "UTF-8")
         assert out == [b"FLAGGED", b"BODY", _normalise_search_criteria_utf8(("BODY", body), "UTF-8")[1]]
         assert b"(" not in out
 
     def test_utf8_flagged_and_or_keeps_group_parens(self) -> None:
-        built = ["FLAGGED", ("OR", ("TO", "a"), ("CC", "a"))]
+        built: SearchCriteria = ["FLAGGED", ("OR", ("TO", "a"), ("CC", "a"))]
         out = _normalise_search_criteria_utf8(built, "UTF-8")
         assert out[0] == b"FLAGGED"
         assert out[1] == b"(OR"

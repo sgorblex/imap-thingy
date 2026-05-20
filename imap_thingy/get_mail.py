@@ -19,8 +19,8 @@ type SearchCriteria = str | bytes | int | date | datetime | list["SearchCriteria
 
 
 def _is_simple_search_pair(item: SearchCriteria) -> bool:
-    """True for a 2-element (search-key, value) pair, not OR/NOT compounds."""
-    if not isinstance(item, (list, tuple)) or len(item) != 2:
+    """Return whether *item* is a 2-element (search-key, value) pair, not an OR/NOT compound."""
+    if not isinstance(item, tuple) or len(item) != 2:
         return False
     key = item[0]
     return isinstance(key, str) and key.upper() not in ("OR", "NOT")
