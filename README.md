@@ -10,7 +10,10 @@ IMAP Thingy is a library that lets its users create advanced IMAP filters. Possi
 
 
 ## Installation
-The quickest way is probably
+```
+pip install imap-thingy
+```
+or, for the unreleased state of `main`:
 ```
 pip install git+https://github.com/sgorblex/imap-thingy.git
 ```
@@ -110,8 +113,8 @@ Releases and `CHANGELOG.md` are automated by Release Please from Conventional Co
 
 
 ## Contributing
-Feel free to raise issues or open pull requests! Branch, commit and PR conventions are in [`AGENTS.md`](AGENTS.md).
+Feel free to raise issues or open pull requests! Branch, commit and PR conventions are in [`AGENTS.md`](https://github.com/sgorblex/imap-thingy/blob/main/AGENTS.md).
 
 
 ## License
-[GPL v.3](https://www.gnu.org/licenses/gpl-3.0.en.html)
+[GPL v.3](https://www.gnu.org/licenses/gpl-3.0.en.html) or later

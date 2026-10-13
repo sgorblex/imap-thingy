@@ -30,7 +30,7 @@ The shared guide for AI-assisted work in this repository. **`CLAUDE.md`** redire
 - Branches are managed with **Graphite** (`gt create` / `gt modify` / `gt restack` / `gt submit`), not raw `git branch` / `git commit --amend` / `gh pr create`. Check the current stack (`gt log short`) before adding branches, so new work stacks on the right parent.
 - **Branch names**: `<type>/<short_name>` — one slash, `<type>` the Conventional Commit type the branch squashes to, `<short_name>` lowercase `snake_case`, two to four words, no scope segment (`feat/body_criteria`, `fix/idle_backoff`). Always pass the name to `gt create` (`gt create feat/x -m "feat: …"`); without one it slugifies the message.
 - Reserved prefixes, never used for hand-made branches: `release-please--`, `renovate/`, `graphite-base/`, `worktree-`.
-- **Conventional Commits** on every commit. PRs merge into `main` by **squash** — the squash title is the changelog entry Release Please reads, so it decides the version bump. Put the **why** in the commit body: a later review reads the branch, not the conversation.
+- **Conventional Commits** on every commit. PRs merge into `main` by **squash** — the squash title is the changelog entry Release Please reads, so it decides the version bump. Merging the Release Please PR tags the release and publishes it to PyPI (`.github/workflows/release-please.yml`, trusted publishing via the `pypi` environment). Put the **why** in the commit body: a later review reads the branch, not the conversation.
 - **A branch ships as one unit.** If an earlier commit in an unmerged branch added something a later one makes obsolete, fix it at the source (`gt modify`) instead of adding a revert commit.
 - A stacked PR that cannot pass until the branch below merges gets the `ci:pause` label.
 - **Never run remote-mutating commands — `git push`, `gt submit`, `gt push`, `gh pr create`, merging, closing or commenting on a PR — unless the user explicitly asks in the current request.** Local commits, stack edits and read-only inspection need no asking.
@@ -45,7 +45,7 @@ The shared guide for AI-assisted work in this repository. **`CLAUDE.md`** redire
 mise run test -- tests/test_criteria.py::TestCriteriaCombination::test_criteria_and_combination
 ```
 
-Do **not** invoke `uv`, `pytest`, `ruff` or `mypy` directly without `mise run` / `mise exec`. CI (`.github/workflows/code_quality.yml`) is the exception: it calls `uv` directly with `--locked`, and its uv/Python pins are kept in step with `mise.toml` by Renovate groups.
+Do **not** invoke `uv`, `pytest`, `ruff` or `mypy` directly without `mise run` / `mise exec`. CI (`.github/workflows/`) is the exception: it calls `uv` directly, and its uv/Python pins are kept in step with `mise.toml` by Renovate groups.
 
 ## Local quality checks
 

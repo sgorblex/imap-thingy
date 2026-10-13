@@ -1,5 +1,5 @@
-# Pinned for local dev only — CI pins python/uv independently in .github/workflows/code_quality.yml;
-# Renovate groups keep both in sync.
+# Pinned for local dev only — CI pins python/uv independently in .github/workflows/ (code_quality.yml,
+# release-please.yml); Renovate groups keep them in sync.
 [tools]
 python = "3.14.7"
 uv = "0.12.21"

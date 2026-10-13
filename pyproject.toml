@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.0", "wheel"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
@@ -11,10 +11,25 @@ version = "0.3.0"
 description = "An IMAP scripting library for creating advanced email filters and automation"
 readme = "README.md"
 requires-python = ">=3.14"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+authors = [{ name = "Alessandro Clerici Lorenzini", email = "code@aclerici.me" }]
+keywords = ["imap", "email", "filter", "mail-filtering"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Communications :: Email",
+    "Topic :: Communications :: Email :: Filters",
+]
 dependencies = [
     "imapclient>=3.1.0",
     "mail-parser>=4.1.4",
 ]
+
+[project.urls]
+Repository = "https://github.com/sgorblex/imap-thingy"
+Issues = "https://github.com/sgorblex/imap-thingy/issues"
+Changelog = "https://github.com/sgorblex/imap-thingy/blob/main/CHANGELOG.md"
 
 [dependency-groups]
 dev = [
