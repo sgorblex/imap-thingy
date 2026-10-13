@@ -1,0 +1,17 @@
+{
+  "worktree": {
+    "bgIsolation": "worktree"
+  },
+  "hooks": {
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "{ git for-each-ref --merged main --format='%(refname:short)' 'refs/heads/worktree-*' | xargs -r git branch -d; } >/dev/null 2>&1 || true"
+          }
+        ]
+      }
+    ]
+  }
+}
