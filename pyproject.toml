@@ -27,18 +27,32 @@ dev = [
 ]
 
 [tool.mypy]
+python_version = "3.14"
+strict = true
 explicit_package_bases = true
+warn_unreachable = true
+extra_checks = true
+pretty = true
 
 [[tool.mypy.overrides]]
 module = [ "imapclient.*", "mailparser.*" ]
 ignore_missing_imports = true
 
 [tool.ruff]
-line-length = 200
+target-version = "py314"
+line-length = 100
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "N", "B", "UP", "D", "ANN"]
+select = [
+  "A", "ANN", "B", "C4", "D", "DTZ", "E", "EXE", "F", "FA", "I", "ICN", "ISC", "LOG", "N",
+  "PIE", "PLE", "PLW", "PT", "PYI", "Q", "RET", "RSE", "RUF", "SIM", "SLF", "SLOT", "TC",
+  "TID", "UP", "W", "YTT",
+]
 ignore = ["D203", "D213", "D105"]
 
+[tool.ruff.lint.isort]
+known-first-party = ["imap_thingy"]
+
 [tool.ruff.lint.per-file-ignores]
-"tests/**/*.py" = ["D"]
+# Tests mock imapclient's private `_raw_command_untagged`, which search_mail calls.
+"tests/**/*.py" = ["D", "SLF001"]
