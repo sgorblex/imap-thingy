@@ -1,15 +1,49 @@
+# Pinned for local dev only — CI pins python/uv independently in .github/workflows/code_quality.yml;
+# Renovate groups keep both in sync.
 [tools]
-uv = "latest"
+python = "3.14.7"
+uv = "0.12.21"
 
-[tasks]
-test = "uv run pytest"
-build = "uv build"
-format = "uv format"
-lint = "uv run ruff check --fix"
-check = "uv run ruff check"
-type-check = "uv run mypy ."
-fix = { depends = ["format", "lint", "type-check"] }
-install = "uv install"
-update = "uv sync --dev --upgrade"
-clean = "find . \\( -type d -name __pycache__ -o -type d -name '*.egg-info' -o -type d -name .pytest_cache -o -type d -name .mypy_cache -o -type d -name .ruff_cache -o -type d -name htmlcov -o -type d -name dist -o -type d -name build -o -type f -name '*.pyc' -o -type f -name '*.pyo' -o -name .coverage \\) -delete 2>/dev/null || true"
-clean-all = { depends = ["clean"], run = "rm -rf .venv venv ENV env 2>/dev/null || true" }
+[env]
+_.python.venv = { path = ".venv", create = true }
+UV_PYTHON = { value = "{{ tools.python.path }}", tools = true }
+UV_NO_PROGRESS = "1"
+
+[tasks.setup-python]
+hide = true
+description = "Install Python dependencies"
+run = "uv sync --all-groups"
+
+[tasks.setup]
+description = "Install everything needed for development"
+depends = ["setup-python"]
+run = "true"
+
+[tasks.check]
+description = "Ruff lint + format check, then mypy"
+depends = ["setup-python"]
+run = ["uv run --no-sync ruff check . -q", "uv run --no-sync ruff format --check . -q", "uv run --no-sync mypy ."]
+
+[tasks.fix]
+description = "Ruff auto-fix + format, then mypy (types are not auto-fixed)"
+depends = ["setup-python"]
+run = ["uv run --no-sync ruff check . --fix -q", "uv run --no-sync ruff format . -q", "uv run --no-sync mypy ."]
+
+[tasks.test]
+description = "Run the test suite (extra args go to pytest)"
+depends = ["setup-python"]
+run = "uv run --no-sync pytest"
+
+[tasks.build]
+description = "Build sdist and wheel into dist/"
+depends = ["setup-python"]
+run = "uv build"
+
+[tasks.clean]
+description = "Remove caches and build outputs"
+run = "find . \\( -type d -name __pycache__ -o -type d -name '*.egg-info' -o -type d -name .pytest_cache -o -type d -name .mypy_cache -o -type d -name .ruff_cache -o -type d -name htmlcov -o -type d -name dist -o -type d -name build -o -type f -name '*.pyc' -o -type f -name '*.pyo' -o -name .coverage \\) -delete 2>/dev/null || true"
+
+[tasks.clean-all]
+description = "clean, plus the virtualenv"
+depends = ["clean"]
+run = "rm -rf .venv"

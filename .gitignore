@@ -2,3 +2,12 @@
 *.pyc
 __pycache__/
 *.log
+dist/
+
+# Local environment and secrets — never commit
+.env
+mise.local.toml
+
+# Agent worktrees and per-machine client settings
+.claude/worktrees/
+.claude/settings.local.json

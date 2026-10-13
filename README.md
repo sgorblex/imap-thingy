@@ -94,8 +94,23 @@ def dmarc_pairs(account: Account, sender: str, folder: str, delete_preview: bool
     return pairs
 ```
 
+## Development
+Tooling is pinned with [mise](https://mise.jdx.dev/); run everything through `mise run <task>`:
+
+| Task | What it does |
+| --- | --- |
+| `setup` | Install Python dependencies into `.venv` |
+| `fix` | Ruff auto-fix and format, then mypy |
+| `check` | Ruff lint and format check, then mypy |
+| `test` | Run the test suite; extra args go to pytest (`mise run test -- tests/test_criteria.py`) |
+| `build` | Build sdist and wheel |
+| `clean` / `clean-all` | Remove caches and build outputs (`clean-all` also removes `.venv`) |
+
+Releases and `CHANGELOG.md` are automated by Release Please from Conventional Commit squash titles; dependency updates come from Renovate.
+
+
 ## Contributing
-Feel free to raise issues or open pull requests!
+Feel free to raise issues or open pull requests! Branch, commit and PR conventions are in [`AGENTS.md`](AGENTS.md).
 
 
 ## License

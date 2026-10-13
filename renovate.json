@@ -1,0 +1,79 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "automerge": true,
+  "automergeStrategy": "squash",
+  "platformAutomerge": true,
+  "dependencyDashboard": true,
+  "dependencyDashboardApproval": true,
+  "description": [
+    "`dependencyDashboardApproval`: nothing opens until its dashboard box is checked; `automerge` then finishes it once required checks pass on `main`'s ruleset."
+  ],
+  "minimumReleaseAge": "7 days",
+  "vulnerabilityAlerts": {
+    "description": "`chore` is hidden in Release Please's changelog sections and cuts no release; `fix` makes a security update a patch release on its own. These skip dashboard approval, so a person merges them.",
+    "semanticCommitType": "fix",
+    "automerge": false
+  },
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Bare versions annotated with a renovate comment (GitHub Actions inputs)",
+      "managerFilePatterns": ["/^\\.github/workflows/.+\\.ya?ml$/"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\s+(?:python-)?version:\\s*\"(?<currentValue>[^\"]+)\""
+      ]
+    }
+  ],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "pinDigests": true,
+      "automerge": false,
+      "groupName": "GitHub Actions"
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["digest", "pinDigest"],
+      "minimumReleaseAge": null,
+      "description": "Renovate reports no release timestamp for a digest, so the soak would stay pending forever. The SHA pin plus reading the diff guards these."
+    },
+    {
+      "matchManagers": ["mise"],
+      "automerge": false,
+      "groupName": "mise tool versions",
+      "description": "Fallback for mise tools without a rule of their own (python and uv are regrouped below). No mise.lock, so lock file maintenance has nothing to refresh.",
+      "lockFileMaintenance": { "enabled": false }
+    },
+    {
+      "matchManagers": ["pep621"],
+      "groupName": "Python dependencies (uv)",
+      "description": "Most constraints are open `>=`, so the default strategy proposes nothing; `update-lockfile` makes in-range upgrades arrive as named PRs touching `uv.lock`.",
+      "rangeStrategy": "update-lockfile"
+    },
+    {
+      "matchManagers": ["pep621"],
+      "minimumReleaseAge": null,
+      "description": "`uv lock --upgrade-package` takes no version and resolves the newest release regardless of the soak, so the soak would only fail the artifact update (renovatebot/renovate#41624)."
+    },
+    {
+      "matchManagers": ["pep621"],
+      "matchPackageNames": ["mypy", "ruff"],
+      "groupName": "lint toolchain (expect new diagnostics)",
+      "description": "Bounded to one minor in pyproject.toml; kept apart so new diagnostics are attributable to the PR that introduced them."
+    },
+    {
+      "matchPackageNames": ["python", "python/cpython", "uv", "astral-sh/uv"],
+      "groupName": "python and uv (mise, CI)",
+      "minimumReleaseAge": null,
+      "description": "mise.toml and setup-uv's `python-version`/`version` in CI. One group, because CI's uv must know the Python it is asked to download. Matching is on packageName (`python/cpython`, `astral-sh/uv` for mise). No soak: it would apply to only some datasources and split the group."
+    }
+  ]
+}
