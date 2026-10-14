@@ -83,4 +83,4 @@ Bottom-up, on each branch: `mise run fix`, `mise run check`, `mise run test`; ad
 
 ## Never
 
-**No `git push`, `gt submit`, `gt push`, `gh pr create`, merge, or PR comment** — this skill stops one step short of the PR, unless the user explicitly asks in that same turn.
+**No `git push`, `gt submit`, `gt push`, `gh pr create`, merge, or PR comment** — this skill stops one step short of the PR, unless the user explicitly asks in that same turn. When they do, follow *Submitting* in [`AGENTS.md`](../../../AGENTS.md) — *Git / Graphite*.
