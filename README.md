@@ -97,6 +97,24 @@ def dmarc_pairs(account: Account, sender: str, folder: str, delete_preview: bool
     return pairs
 ```
 
+### Rules as data
+Filters built from the library's criteria and actions can be turned into JSON-compatible data and back, e.g. to keep rules in a file or edit them from another program:
+```python
+import json
+from imap_thingy.spec import load_filter
+
+f = If(FromIs("list4nerds@nerduniversity.edu") & ~IsRead()).then(MarkAsRead() + MoveTo(Path(["Lists", "Nerds"])))
+data = json.dumps(f.to_spec())
+assert load_filter(json.loads(data)) == f
+```
+```json
+{
+  "criterion": {"and": [{"type": "from_is", "args": {"addr": "list4nerds@nerduniversity.edu"}}, {"not": {"type": "is_read"}}]},
+  "action": {"seq": [{"type": "mark_as_read"}, {"type": "move_to", "args": {"folder": ["Lists", "Nerds"]}}]}
+}
+```
+A leaf is `{"type": ..., "args": {...}}`: the class name in `snake_case` and its constructor arguments by name. Folder paths are lists of segments, flags are `Flag` names (`"SEEN"`), dates are ISO 8601. `&`, `|`, `~` become `and`, `or`, `not`, and `+` becomes `seq`. `load_criterion` and `load_action` load the parts, and `imap_thingy.spec.json_schema()` returns the JSON Schema of the format (shipped as `imap_thingy/spec/schema.json`). Criteria and actions built from your own functions have no data form: `to_spec()` raises `NotSerializableError`. Equality and `repr()` follow the data form, so `FromIs("a") == FromIs("a")`.
+
 ## Development
 Tooling is pinned with [mise](https://mise.jdx.dev/); run everything through `mise run <task>`:
 
