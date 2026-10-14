@@ -47,6 +47,17 @@
       "description": "Renovate reports no release timestamp for a digest, so the soak would stay pending forever. The SHA pin plus reading the diff guards these."
     },
     {
+      "matchManagers": ["woodpecker"],
+      "pinDigests": true,
+      "automerge": false
+    },
+    {
+      "matchManagers": ["woodpecker"],
+      "matchUpdateTypes": ["digest", "pinDigest"],
+      "minimumReleaseAge": null,
+      "description": "Same as GitHub Actions digests: no release timestamp, so a soak would never end."
+    },
+    {
       "matchManagers": ["mise"],
       "automerge": false,
       "groupName": "mise tool versions",
@@ -71,10 +82,10 @@
       "description": "Bounded to one minor in pyproject.toml; kept apart so new diagnostics are attributable to the PR that introduced them."
     },
     {
-      "matchPackageNames": ["python", "python/cpython", "uv", "astral-sh/uv"],
+      "matchPackageNames": ["python", "python/cpython", "uv", "astral-sh/uv", "ghcr.io/astral-sh/uv"],
       "groupName": "python and uv (mise, CI)",
       "minimumReleaseAge": null,
-      "description": "mise.toml and setup-uv's `python-version`/`version` in CI. One group, because CI's uv must know the Python it is asked to download. Matching is on packageName (`python/cpython`, `astral-sh/uv` for mise). No soak: it would apply to only some datasources and split the group."
+      "description": "mise.toml, the Woodpecker uv image (its tag carries uv, its digest the Python patch) and setup-uv's `python-version`/`version` in the release workflow. One group, because CI's uv must know the Python it is asked to download. Matching is on packageName (`python/cpython`, `astral-sh/uv` for mise). No soak: it would apply to only some datasources and split the group."
     }
   ]
 }

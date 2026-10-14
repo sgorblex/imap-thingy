@@ -32,7 +32,7 @@ The shared guide for AI-assisted work in this repository. **`CLAUDE.md`** redire
 - Reserved prefixes, never used for hand-made branches: `release-please--`, `renovate/`, `graphite-base/`, `worktree-`.
 - **Conventional Commits** on every commit. PRs merge into `main` by **squash** — the squash title is the changelog entry Release Please reads, so it decides the version bump. Merging the Release Please PR tags the release and publishes it to PyPI (`.github/workflows/release-please.yml`, trusted publishing via the `pypi` environment). Put the **why** in the commit body: a later review reads the branch, not the conversation.
 - **A branch ships as one unit.** If an earlier commit in an unmerged branch added something a later one makes obsolete, fix it at the source (`gt modify`) instead of adding a revert commit.
-- A stacked PR that cannot pass until the branch below merges gets the `ci:pause` label.
+- A stacked PR that cannot pass until the branch below merges gets the `ci:pause` label: Woodpecker then starts no run, so the required check stays pending. Resuming needs the label removed *and* a new push.
 - **Never run remote-mutating commands — `git push`, `gt submit`, `gt push`, `gh pr create`, merging, closing or commenting on a PR — unless the user explicitly asks in the current request.** Local commits, stack edits and read-only inspection need no asking.
 
 **Worktrees**: feature-sized agent work goes in its own worktree under `.claude/worktrees/<short_name>` (gitignored); from the shared main checkout, **ask before creating one**. A harness-generated `worktree-…` branch is untracked scratch that `gt` refuses to operate on: open the real branch with `git switch -c <type>/<short_name>` then `gt track --parent <parent>`, and delete the scratch branch (`git branch -d worktree-…`; a `SessionEnd` hook in `.claude/settings.json` sweeps merged leftovers). Hand the worktree back in place, committed and clean, nothing submitted. Skills: `.agents/skills/start-work`, `.agents/skills/review-stack`.
@@ -45,11 +45,11 @@ The shared guide for AI-assisted work in this repository. **`CLAUDE.md`** redire
 mise run test -- tests/test_criteria.py::TestCriteriaCombination::test_criteria_and_combination
 ```
 
-Do **not** invoke `uv`, `pytest`, `ruff` or `mypy` directly without `mise run` / `mise exec`. CI (`.github/workflows/`) is the exception: it calls `uv` directly, and its uv/Python pins are kept in step with `mise.toml` by Renovate groups.
+Do **not** invoke `uv`, `pytest`, `ruff` or `mypy` directly without `mise run` / `mise exec`. CI is the exception: it calls `uv` directly, and its uv/Python pins are kept in step with `mise.toml` by Renovate groups.
 
 ## Local quality checks
 
-After each implementation pass run `mise run fix`, which leaves `mise run check` clean; add `mise run test` before handing work over; `mise run build` once before a PR. CI runs format check, lint, mypy, build and tests on every push. Report work as done only once the relevant check has **actually run**, and say plainly which ones did not.
+After each implementation pass run `mise run fix`, which leaves `mise run check` clean; add `mise run test` before handing work over; `mise run build` once before a PR. CI (Woodpecker, `.woodpecker/checks.yaml`) runs format check, lint, mypy, tests and build on PRs and pushes to `main`; `main`'s ruleset requires it as `ci/woodpecker/pr/checks`, so never put a path filter on that pipeline's top-level `when`. GitHub Actions only hosts release automation (Release Please, PyPI publish) and PR assignment. Report work as done only once the relevant check has **actually run**, and say plainly which ones did not.
 
 ## After you change the repository
 
