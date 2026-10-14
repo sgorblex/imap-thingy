@@ -5,6 +5,9 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools.packages.find]
 include = ["imap_thingy", "imap_thingy.*"]
 
+[tool.setuptools.package-data]
+"imap_thingy.spec" = ["schema.json"]
+
 [project]
 name = "imap-thingy"
 version = "0.4.0"
@@ -35,6 +38,8 @@ Changelog = "https://github.com/sgorblex/imap-thingy/blob/main/CHANGELOG.md"
 [dependency-groups]
 dev = [
     "ipython>=9.11.0",
+    "jsonschema>=4.25",
+    "types-jsonschema>=4.25",
     "pytest>=9.0.0",
     "pytest-cov>=7.0.0",
     # Bounded to one minor: an open floor lets lock file maintenance pull new lint rules into a
