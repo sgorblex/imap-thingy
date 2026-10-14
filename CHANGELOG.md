@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/sgorblex/imap-thingy/compare/v0.4.0...v0.5.0) (2026-10-14)
+
+
+### Features
+
+* add JSON-compatible data specs for filters, criteria and actions ([#39](https://github.com/sgorblex/imap-thingy/issues/39)) ([b83d047](https://github.com/sgorblex/imap-thingy/commit/b83d0475984f022c95feea1e66bf3b6ee844a04b))
+
 ## [0.4.0](https://github.com/sgorblex/imap-thingy/compare/v0.3.0...v0.4.0) (2026-10-13)
 
 
