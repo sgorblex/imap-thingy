@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://github.com/sgorblex/imap-thingy/compare/v0.5.0...v0.6.0) (2026-10-15)
+
+
+### Features
+
+* add runner for running filter rules once, in parallel, or via IDLE ([#41](https://github.com/sgorblex/imap-thingy/issues/41)) ([dfc8692](https://github.com/sgorblex/imap-thingy/commit/dfc86927d4bdb535a9ee100ba4f08c6ed9568a50))
+
 ## [0.5.0](https://github.com/sgorblex/imap-thingy/compare/v0.4.0...v0.5.0) (2026-10-14)
 
 
