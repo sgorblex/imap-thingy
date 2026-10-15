@@ -97,6 +97,18 @@ def dmarc_pairs(account: Account, sender: str, folder: str, delete_preview: bool
     return pairs
 ```
 
+### Running rules
+`imap_thingy.runner` runs filters grouped by folder (`Rules`, a list of `(folder, [filters])`), either once or continuously through IMAP IDLE:
+```python
+from imap_thingy.runner import monitor, run_rules, starred_only
+
+rules = [(gmail / "INBOX", [f1, f2]), (custom / "INBOX", [f3])]
+run_rules(rules, dry_run=False)                 # one folder after the other
+run_rules(rules, dry_run=False, parallel=True)  # one thread per folder; failures raised together at the end
+monitor(rules, dry_run=False)                   # run each folder's filters on new mail, until SIGTERM/SIGINT
+```
+`monitor` installs SIGTERM/SIGINT handlers, so call it from the main thread. `starred_only(rules)` restricts every filter to starred messages and unstars them before the action, so you can sort mail by starring it.
+
 ### Rules as data
 Filters built from the library's criteria and actions can be turned into JSON-compatible data and back, e.g. to keep rules in a file or edit them from another program:
 ```python
