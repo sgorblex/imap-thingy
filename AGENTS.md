@@ -22,6 +22,8 @@ The shared guide for AI-assisted work in this repository. **`CLAUDE.md`** redire
 
 **IDLE** (`idle_monitor.py`): `IdleMonitor` watches a folder on a background thread with a read-only connection, calling an `IdleHandler` on each IDLE response, with exponential-backoff reconnect. `IdleFilterer` runs `folder.run(filters)` (on a separate connection) when an `IdleTrigger` (`on_new_mail`, `on_read`, `on_any_event`) fires. Monitors are one-shot.
 
+**Runner** (`runner.py`): `Rules` is a list of `(Folder, list[Filter])` groups. `run_rules` runs them sequentially, or with `parallel=True` one thread per folder, where every folder still runs and the failures are raised together as one `RuntimeError`. `monitor` starts an `IdleMonitor` per folder that runs its filters on new mail, until SIGTERM/SIGINT. `starred_only` wraps rules to act only on starred messages, unstarring them first.
+
 **Logging**: the library never configures logging; loggers are hierarchical under `imap_thingy` (account → folder children). `imap_thingy.logging.setup_logging()` is a deprecated shim.
 
 **Tests** are pure unit tests with no real IMAP server: `conftest.py`'s `mock_account` fixture replaces `Account.connect` with a `MagicMock`, so tests assert on calls made to the mock connection.
