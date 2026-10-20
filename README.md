@@ -109,6 +109,14 @@ monitor(rules, dry_run=False)                   # run each folder's filters on n
 ```
 `monitor` installs SIGTERM/SIGINT handlers, so call it from the main thread. `starred_only(rules)` restricts every filter to starred messages and unstars them before the action, so you can sort mail by starring it.
 
+`folder.run(...)` and `run_rules(...)` return reports (`imap_thingy.report`), plain JSON-compatible dicts: per folder its `account`, `folder` (path segments), `dry_run` and `error` and, per filter, its `spec` (`null` for filters with no data form), `action`, the `matched` messages (`uid`, `from`, `subject`, `date` in UTC) and whether the action was `executed`. A dry run selects the folder read-only and executes nothing:
+```python
+report = (gmail / "INBOX").run([f1, f2], dry_run=True)
+for f in report["filters"]:
+    print(f["spec"], [m["subject"] for m in f["matched"]])
+```
+With `parallel=True`, a failure raises `RunRulesError` (a `RuntimeError`) once every folder has run; its `reports` hold every folder's report, the failed ones with `error` set and the filters that finished before it.
+
 ### Rules as data
 Filters built from the library's criteria and actions can be turned into JSON-compatible data and back, e.g. to keep rules in a file or edit them from another program:
 ```python
