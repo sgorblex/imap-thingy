@@ -107,7 +107,7 @@ run_rules(rules, dry_run=False)                 # one folder after the other
 run_rules(rules, dry_run=False, parallel=True)  # one thread per folder; failures raised together at the end
 monitor(rules, dry_run=False)                   # run each folder's filters on new mail, until SIGTERM/SIGINT
 ```
-`monitor` installs SIGTERM/SIGINT handlers, so call it from the main thread. `starred_only(rules)` restricts every filter to starred messages and unstars them before the action, so you can sort mail by starring it.
+`monitor` installs SIGTERM/SIGINT handlers, so call it from the main thread; to run it in another thread (e.g. inside a worker), pass `install_signal_handlers=False` and a `threading.Event` to stop it: `monitor(rules, dry_run=False, stop=stop, install_signal_handlers=False)` returns about a second after `stop.set()`, once any filters already running finish. Handlers it installs are restored on return. `starred_only(rules)` restricts every filter to starred messages and unstars them before the action, so you can sort mail by starring it.
 
 `folder.run(...)` and `run_rules(...)` return reports (`imap_thingy.report`), plain JSON-compatible dicts: per folder its `account`, `folder` (path segments), `dry_run` and `error` and, per filter, its `spec` (`null` for filters with no data form), `action`, the `matched` messages (`uid`, `from`, `subject`, `date` in UTC) and whether the action was `executed`. A dry run selects the folder read-only and executes nothing:
 ```python
