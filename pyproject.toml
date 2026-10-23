@@ -10,7 +10,7 @@ include = ["imap_thingy", "imap_thingy.*"]
 
 [project]
 name = "imap-thingy"
-version = "0.6.0"
+version = "0.7.0"
 description = "An IMAP scripting library for creating advanced email filters and automation"
 readme = "README.md"
 requires-python = ">=3.14"

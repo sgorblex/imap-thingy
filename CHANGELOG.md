@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.7.0](https://github.com/sgorblex/imap-thingy/compare/v0.6.0...v0.7.0) (2026-10-23)
+
+
+### Features
+
+* add match timeout for user regex patterns ([#47](https://github.com/sgorblex/imap-thingy/issues/47)) ([60d82fb](https://github.com/sgorblex/imap-thingy/commit/60d82fb2a3e3c7592530639d0bccec640ad09d56))
+* add OlderThanDays criterion for age relative to run date ([#44](https://github.com/sgorblex/imap-thingy/issues/44)) ([a5ebac3](https://github.com/sgorblex/imap-thingy/commit/a5ebac351a0ef06487f202e65d8928461406944b))
+* add SSL context and timeout options and list_folders to accounts ([#45](https://github.com/sgorblex/imap-thingy/issues/45)) ([c7ad5cf](https://github.com/sgorblex/imap-thingy/commit/c7ad5cf4f093e5e89eec92f00298156fbf5250cd))
+* allow running IDLE monitor in non-main threads with a stop event ([#46](https://github.com/sgorblex/imap-thingy/issues/46)) ([32f3d26](https://github.com/sgorblex/imap-thingy/commit/32f3d26d273b65eccb75e042de7b91f392ec744f))
+* return JSON-compatible run reports from folder and rule runs ([#43](https://github.com/sgorblex/imap-thingy/issues/43)) ([987462f](https://github.com/sgorblex/imap-thingy/commit/987462f20f162154929f0f5c8dbf8f6e833297be))
+
 ## [0.6.0](https://github.com/sgorblex/imap-thingy/compare/v0.5.0...v0.6.0) (2026-10-15)
 
 
