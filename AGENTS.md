@@ -8,7 +8,7 @@ The shared guide for AI-assisted work in this repository. **`CLAUDE.md`** redire
 
 ## Architecture
 
-**Accounts and folders** (`accounts/`): `Account` holds credentials and the server's folder `delimiter` (`.` by default, `/` for `GMailAccount`). `account / "INBOX"` yields a `Folder` (account + `core.Path`). `Path` is delimiter-agnostic segments; it is only rendered to a string with the account's delimiter at run time, which is why actions like `MoveTo(Path(...))` receive `delimiter=` in `execute()`. `accounts_from_json` builds accounts from a JSON config.
+**Accounts and folders** (`accounts/`): `Account` holds credentials and the server's folder `delimiter` (`.` by default, `/` for `GMailAccount`). `account / "INBOX"` yields a `Folder` (account + `core.Path`). `Path` is delimiter-agnostic segments; it is only rendered to a string with the account's delimiter at run time, which is why actions like `MoveTo(Path(...))` receive `delimiter=` in `execute()`. An optional `ssl_context` and socket `timeout` go to `IMAPClient`; `list_folders()` returns selectable folders as `Path`s, split on the account's `delimiter` so they round-trip through `account / path` (a different server delimiter is logged). `accounts_from_json` builds accounts from a JSON config.
 
 **Filters** = `Criterion` + `Action` (`filters/filter.py`), built either as `Filter(crit, action)` or `If(crit).then(action)`.
 
