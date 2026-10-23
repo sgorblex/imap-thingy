@@ -28,6 +28,7 @@ classifiers = [
 dependencies = [
     "imapclient>=3.1.0",
     "mail-parser>=4.1.4",
+    "regex>=2024.11.6",
 ]
 
 [project.urls]
@@ -46,6 +47,7 @@ dev = [
     # green branch with no dependency PR. Widen deliberately, fixing the new diagnostics.
     "mypy>=1.19,<1.20",
     "ruff>=0.15,<0.16",
+    "types-regex>=2026.9.29.20261017",
 ]
 
 [tool.pytest]
