@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://github.com/sgorblex/imap-thingy/compare/v0.7.0...v0.8.0) (2026-10-29)
+
+
+### Features
+
+* give built-in actions human-readable names ([#49](https://github.com/sgorblex/imap-thingy/issues/49)) ([9c4322c](https://github.com/sgorblex/imap-thingy/commit/9c4322c4149d4cc4e2df874137be831bd8cff433))
+
 ## [0.7.0](https://github.com/sgorblex/imap-thingy/compare/v0.6.0...v0.7.0) (2026-10-23)
 
 
