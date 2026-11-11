@@ -1,4 +1,20 @@
 # IMAP Thingy
+
+> **imap-thingy has moved.** It is now Mailroom's filter engine, `mailroom_core.filters`, in
+> [sgorblex/mailroom](https://github.com/sgorblex/mailroom) (`backend/core`), with its history.
+> It is no longer published on PyPI: 0.8.1 is its last release, and this repository is archived.
+>
+> To keep using it, pin `imap-thingy==0.8.1`, or install mailroom-core from the Mailroom
+> repository, pinned to a release tag after `v0.7.0` (the first ones to include it), and import
+> from `mailroom_core.filters`:
+>
+> ```
+> pip install "mailroom-core @ git+https://github.com/sgorblex/mailroom@<tag>#subdirectory=backend/core"
+> ```
+>
+> The filters, criteria, actions, specs, runner and reports are there; `accounts_from_json`,
+> `GMailAccount` and `setup_logging` did not move.
+
 An IMAP scripting library, primarily to make email filters.
 
 Ever complained about receiving the same emails on multiple inboxes? Or wanted to auto-archive receipts that you've already opened? Or wanted your emails to get sorted automatically in some other way?
@@ -52,7 +68,7 @@ from dmarc import dmarc_pairs
 import argparse
 
 def main():
-    parser = argparse.ArgumentParser(description="imap_filters: my personal IMAP filters")
+    parser = argparse.ArgumentParser(description="My IMAP filters")
     parser.add_argument("--dry-run", action="store_true", help="Print actions instead of executing them")
     args = parser.parse_args()
 
