@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.1](https://github.com/sgorblex/imap-thingy/compare/v0.8.0...v0.8.1) (2026-11-11)
+
+
+### Documentation
+
+* point to Mailroom, where imap-thingy now lives ([#51](https://github.com/sgorblex/imap-thingy/issues/51)) ([91795d0](https://github.com/sgorblex/imap-thingy/commit/91795d0641872c858f09de472023cecc0b52a669))
+
 ## [0.8.0](https://github.com/sgorblex/imap-thingy/compare/v0.7.0...v0.8.0) (2026-10-29)
 
 
